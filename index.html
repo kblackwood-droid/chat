@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ShortForm Studio – Reels & TikTok for Local Businesses</title>
+  <title>Next Play Golf – Towels, Ball Markers & Divot Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="We create scroll-stopping Reels, TikToks, and Shorts for local businesses every month."
+    content="Next Play Golf – premium golf towels, ball markers and divot tools in signature green, yellow and white."
   />
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b0f1f;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.12);
-      --accent-strong: #22d3ee;
+      --green: #166534;
+      --green-dark: #052e16;
+      --green-soft: #0f3a23;
+      --yellow: #facc15;
+      --yellow-soft: #fef9c3;
+      --white: #f9fafb;
       --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-subtle: #1f2937;
-      --danger: #f97373;
-      --radius-lg: 1.25rem;
-      --radius-sm: 0.75rem;
+      --text-muted: #e5e7eb;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.55);
+      --radius-lg: 1.4rem;
+      --radius-sm: 0.9rem;
       --max-width: 1120px;
       --transition-fast: 0.18s ease-out;
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
@@ -35,7 +34,8 @@
     body {
       margin: 0;
       font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #111827 0, #020617 48%, #000 100%);
+      background:
+        radial-gradient(circle at top, #166534 0, #052e16 45%, #020617 90%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -50,6 +50,10 @@
       display: block;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     .page {
       min-height: 100vh;
       display: flex;
@@ -57,12 +61,13 @@
     }
 
     .shell {
-      width: 100%;
       max-width: var(--max-width);
+      width: 100%;
       margin: 0 auto;
       padding: 1.5rem 1.25rem 4rem;
     }
 
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -70,11 +75,11 @@
       backdrop-filter: blur(14px);
       background: linear-gradient(
         to bottom,
-        rgba(2, 6, 23, 0.92),
-        rgba(2, 6, 23, 0.7),
+        rgba(5, 46, 22, 0.96),
+        rgba(6, 78, 59, 0.7),
         transparent
       );
-      border-bottom: 1px solid rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid rgba(22, 163, 74, 0.55);
     }
 
     .nav {
@@ -94,34 +99,37 @@
     }
 
     .logo-pill {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 0, #a855f7, #4f46e5 58%, #22d3ee);
+      background:
+        radial-gradient(circle at 30% 0, var(--yellow), #f97316 40%, #166534 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.25),
-        0 10px 30px rgba(15, 23, 42, 0.85);
+      box-shadow: 0 0 0 2px rgba(250, 250, 250, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.55);
       font-size: 0.95rem;
-      font-weight: 700;
+      font-weight: 800;
+      color: var(--green-dark);
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 0.05rem;
     }
 
     .brand-title {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .brand-sub {
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--yellow-soft);
     }
 
     .nav-links {
@@ -129,12 +137,12 @@
       align-items: center;
       gap: 1.25rem;
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--yellow-soft);
     }
 
     .nav-links a {
       position: relative;
-      padding-bottom: 0.1rem;
+      padding-bottom: 0.08rem;
     }
 
     .nav-links a::after {
@@ -145,7 +153,7 @@
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      background: var(--yellow);
       transition: width var(--transition-fast);
     }
 
@@ -154,27 +162,25 @@
     }
 
     .btn-nav {
-      padding: 0.55rem 1.2rem;
+      padding: 0.55rem 1.25rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: radial-gradient(
-        circle at top left,
-        rgba(79, 70, 229, 0.35),
-        rgba(15, 23, 42, 0.88)
+      border: 1px solid rgba(250, 250, 250, 0.5);
+      background: linear-gradient(
+        to right,
+        rgba(250, 204, 21, 0.85),
+        rgba(253, 230, 138, 0.9)
       );
-      font-size: 0.8rem;
+      color: #1b4332;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
+      letter-spacing: 0.16em;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       cursor: pointer;
-      transition: transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background var(--transition-fast);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
     }
 
     .btn-nav span {
@@ -183,121 +189,94 @@
 
     .btn-nav:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      border-color: rgba(129, 140, 248, 0.7);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
     }
 
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        background: rgba(5, 46, 22, 0.98);
+      }
+    }
+
+    /* HERO */
     .hero {
       padding-top: 3.5rem;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 2.75rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.8rem;
       align-items: center;
     }
 
     @media (max-width: 880px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding-top: 2.5rem;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      header {
-        background: rgba(2, 6, 23, 0.96);
+        padding-top: 2.4rem;
       }
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.24rem 0.7rem;
+      gap: 0.4rem;
+      padding: 0.26rem 0.75rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.85);
+      background: rgba(4, 47, 24, 0.95);
+      border: 1px solid rgba(187, 247, 208, 0.35);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 1.4rem;
+      color: var(--yellow-soft);
+      margin-bottom: 1.5rem;
     }
 
     .hero-kicker-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      background: radial-gradient(circle at center, #22c55e, #16a34a);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+      background: radial-gradient(circle at center, #22c55e, #15803d);
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.35);
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3rem);
-      line-height: 1.08;
+      font-size: clamp(2.5rem, 4vw, 3rem);
+      line-height: 1.05;
       margin: 0 0 1rem;
       letter-spacing: -0.03em;
     }
 
     .hero-title span {
-      background: linear-gradient(to right, #22d3ee, #a855f7, #f97316);
-      -webkit-background-clip: text;
-      color: transparent;
+      color: var(--yellow);
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-      max-width: 31rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 32rem;
+      color: var(--yellow-soft);
     }
 
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.3rem;
-      margin: 1.7rem 0;
-    }
-
-    .metric-pill {
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      background: rgba(15, 23, 42, 0.9);
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      min-width: 8.3rem;
-    }
-
-    .metric-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-    }
-
-    .metric-value {
-      font-weight: 600;
-      font-size: 0.9rem;
+    .hero-subtitle strong {
+      color: var(--white);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-      margin-top: 0.6rem;
+      margin: 1.9rem 0 0.7rem;
     }
 
     .btn-primary,
     .btn-ghost {
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 600;
-      padding: 0.9rem 1.35rem;
+      padding: 0.95rem 1.4rem;
       cursor: pointer;
       border: 1px solid transparent;
       display: inline-flex;
@@ -311,165 +290,178 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #4f46e5, #22d3ee);
-      color: #0b1120;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.85);
+      background: linear-gradient(135deg, var(--yellow), #facc15);
+      color: #1b4332;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 26px 65px rgba(15, 23, 42, 0.95);
-      filter: brightness(1.05);
+      box-shadow: 0 26px 65px rgba(0, 0, 0, 0.9);
+      filter: brightness(1.03);
     }
 
     .btn-ghost {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 0.45);
-      color: var(--text-muted);
+      background: rgba(4, 47, 24, 0.98);
+      border-color: rgba(187, 247, 208, 0.4);
+      color: var(--yellow-soft);
     }
 
     .btn-ghost:hover {
-      border-color: rgba(129, 140, 248, 0.9);
-      color: var(--text-main);
-      background: radial-gradient(
-        circle at top,
-        rgba(79, 70, 229, 0.35),
-        rgba(15, 23, 42, 0.98)
+      border-color: var(--yellow);
+      background: linear-gradient(
+        135deg,
+        rgba(22, 163, 74, 0.9),
+        rgba(4, 47, 24, 1)
       );
+      color: var(--white);
     }
 
     .hero-note {
-      margin-top: 1.2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--yellow-soft);
       display: flex;
       align-items: center;
       gap: 0.45rem;
     }
 
-    .hero-note-dot {
-      width: 6px;
-      height: 6px;
+    .hero-note-tag {
+      padding: 0.17rem 0.6rem;
       border-radius: 999px;
-      background: var(--accent-strong);
+      border: 1px solid rgba(190, 242, 100, 0.7);
+      background: rgba(54, 83, 20, 0.9);
+      color: #ecfccb;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
 
-    .hero-media {
+    .hero-course {
       position: relative;
-      padding: 1.8rem 1.5rem;
-      border-radius: 1.6rem;
-      background: radial-gradient(
-          circle at top left,
-          rgba(79, 70, 229, 0.35),
-          transparent 60%
-        ),
-        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.26), #020617);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.9rem 1.7rem;
+      border-radius: 1.7rem;
+      background:
+        radial-gradient(circle at top left, #4ade80 0, #166534 35%, #052e16 80%);
+      border: 1px solid rgba(187, 247, 208, 0.6);
       box-shadow: var(--shadow-soft);
       overflow: hidden;
+      min-height: 260px;
     }
 
-    .hero-badge {
+    .course-sun {
       position: absolute;
-      top: 1.4rem;
-      right: 1.4rem;
-      padding: 0.4rem 0.8rem;
+      width: 210px;
+      height: 210px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      font-size: 0.72rem;
+      background: radial-gradient(circle at center, var(--yellow), #f97316 70%);
+      top: -100px;
+      right: -60px;
+      opacity: 0.85;
+      filter: blur(0.2px);
+    }
+
+    .course-green {
+      position: absolute;
+      inset: auto 0 0;
+      height: 55%;
+      background:
+        radial-gradient(circle at top, #22c55e 10%, #166534 65%, #052e16 100%);
+      border-top-left-radius: 50% 70%;
+      border-top-right-radius: 50% 80%;
+    }
+
+    .flag-stick {
+      position: absolute;
+      left: 55%;
+      bottom: 23%;
+      width: 3px;
+      height: 120px;
+      background: #f1f5f9;
+      transform: translateX(-50%);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.3);
+    }
+
+    .flag {
+      position: absolute;
+      left: 55%;
+      bottom: calc(23% + 96px);
+      width: 62px;
+      height: 38px;
+      background: linear-gradient(
+        to right,
+        #fef9c3 0,
+        #facc15 40%,
+        #fcd34d 100%
+      );
+      transform-origin: left center;
+      transform: translateX(-3px) skewY(-4deg);
+      border-radius: 6px 12px 12px 6px;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .flag::after {
+      content: "Next Play";
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #14532d;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      letter-spacing: 0.12em;
     }
 
-    .phone-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin-top: 0.6rem;
-    }
-
-    .phone {
-      border-radius: 1.4rem;
-      padding: 0.4rem;
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      background: radial-gradient(circle at top, #020617, #020617);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 9 / 16;
-    }
-
-    .phone-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 1rem;
-      padding: 0.5rem;
-      background: radial-gradient(circle at top, #1e293b, #020617);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .phone-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.65rem;
-      color: var(--text-muted);
-    }
-
-    .phone-video {
-      flex: 1;
-      margin: 0.5rem 0;
-      border-radius: 0.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at center, #4f46e5, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      text-align: center;
-      padding: 0.8rem;
-    }
-
-    .phone-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    .pulse-tag {
-      padding: 0.18rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(22, 163, 74, 0.16);
-      color: #4ade80;
-      font-size: 0.7rem;
-    }
-
-    .floating-tag {
+    .cup {
       position: absolute;
-      left: 1.4rem;
-      bottom: 1.3rem;
-      padding: 0.38rem 0.78rem;
+      left: 55%;
+      bottom: 22%;
+      width: 26px;
+      height: 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.65);
+      transform: translateX(-50%);
     }
 
-    .floating-dot {
-      width: 7px;
-      height: 7px;
+    .ball {
+      position: absolute;
+      left: 36%;
+      bottom: 29%;
+      width: 18px;
+      height: 18px;
       border-radius: 999px;
-      background: var(--accent);
+      background: radial-gradient(circle at 30% 30%, #ffffff, #cbd5f5);
+      box-shadow: 0 4px 9px rgba(0, 0, 0, 0.6);
+    }
+
+    .course-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 14rem;
+      font-size: 0.9rem;
+      color: #ecfdf5;
+    }
+
+    .course-badge {
+      position: absolute;
+      left: 1.7rem;
+      bottom: 1.7rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(5, 46, 22, 0.9);
+      border: 1px solid rgba(190, 242, 100, 0.7);
+      font-size: 0.76rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .course-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--yellow);
     }
 
     .section {
@@ -486,263 +478,330 @@
     }
 
     .section-title {
-      font-size: 1.4rem;
       margin: 0;
+      font-size: 1.5rem;
       letter-spacing: -0.02em;
     }
 
     .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 28rem;
+      font-size: 0.93rem;
+      color: var(--yellow-soft);
+      max-width: 29rem;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      font-size: 0.76rem;
-      color: var(--text-muted);
+      font-size: 0.78rem;
+      color: var(--yellow-soft);
     }
 
     .pill-row span {
-      padding: 0.2rem 0.75rem;
+      padding: 0.23rem 0.8rem;
       border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(187, 247, 208, 0.6);
+      background: rgba(5, 46, 22, 0.9);
     }
 
-    .grid-3 {
+    /* PRODUCT GRID */
+
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.3rem;
+      gap: 1.5rem;
     }
 
-    @media (max-width: 880px) {
-      .grid-3 {
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .product-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .card {
+    .product-card {
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      background: radial-gradient(
-          circle at top left,
-          rgba(79, 70, 229, 0.16),
-          transparent 55%
-        ),
-        rgba(15, 23, 42, 0.96);
-      padding: 1.25rem 1.2rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(187, 247, 208, 0.6);
+      background: linear-gradient(
+        145deg,
+        rgba(4, 47, 24, 0.98),
+        rgba(21, 128, 61, 0.95)
+      );
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
       position: relative;
       overflow: hidden;
     }
 
-    .card-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .card-title {
-      font-size: 1rem;
-      margin: 0 0 0.45rem;
-    }
-
-    .card-text {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .card-tag {
+    .product-tag {
       position: absolute;
-      right: 1.1rem;
-      top: 1.1rem;
-      padding: 0.15rem 0.55rem;
+      right: 1rem;
+      top: 1rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 999px;
-      font-size: 0.7rem;
-      color: var(--accent-strong);
-      border: 1px solid rgba(56, 189, 248, 0.6);
-      background: rgba(8, 47, 73, 0.75);
-    }
-
-    .card-step {
-      font-size: 2.2rem;
-      font-weight: 700;
-      opacity: 0.12;
-      position: absolute;
-      bottom: -0.6rem;
-      right: 0.8rem;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
-    }
-
-    @media (max-width: 880px) {
-      .pricing-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .price-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: radial-gradient(
-          circle at top left,
-          rgba(79, 70, 229, 0.22),
-          transparent 55%
-        ),
-        rgba(15, 23, 42, 0.97);
-      padding: 1.4rem 1.3rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      position: relative;
-      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.9);
-    }
-
-    .price-card.featured {
-      border-color: rgba(250, 250, 250, 0.9);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.96);
-    }
-
-    .price-label {
-      font-size: 0.75rem;
+      background: rgba(250, 250, 250, 0.92);
+      color: #14532d;
+      font-size: 0.72rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
+      letter-spacing: 0.12em;
     }
 
-    .price-name {
-      font-size: 1.1rem;
+    .product-image {
+      height: 150px;
+      border-radius: var(--radius-sm);
+      background:
+        radial-gradient(circle at 25% 0, #facc15 0, #facc15 40%, #14532d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #1b4332;
+      text-align: center;
+      padding: 0.9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image::after {
+      content: "";
+      position: absolute;
+      inset: 12px 16px;
+      border-radius: inherit;
+      border: 2px dashed rgba(22, 101, 52, 0.6);
+    }
+
+    .product-name {
+      margin: 0.4rem 0 0.1rem;
+      font-size: 1.02rem;
       font-weight: 600;
     }
 
-    .price-amount {
-      font-size: 1.5rem;
-      font-weight: 700;
+    .product-desc {
+      font-size: 0.85rem;
+      color: #fefce8;
+      line-height: 1.7;
     }
 
-    .price-amount span {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-left: 0.1rem;
-    }
-
-    .price-desc {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .price-features {
-      list-style: none;
-      margin: 0.2rem 0 0.9rem;
-      padding: 0;
-      font-size: 0.84rem;
-      color: var(--text-muted);
+    .product-meta {
       display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .price-features li::before {
-      content: "✔";
-      margin-right: 0.45rem;
-      font-size: 0.75rem;
-      color: #22c55e;
-    }
-
-    .btn-price {
-      margin-top: auto;
-      align-self: flex-start;
-      border-radius: 999px;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.6rem;
       font-size: 0.86rem;
-      padding: 0.75rem 1.2rem;
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .product-detail {
+      font-size: 0.78rem;
+      color: var(--yellow-soft);
+    }
+
+    .btn-product {
+      margin-top: 0.6rem;
+      align-self: flex-start;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(190, 242, 100, 0.9);
+      background: rgba(5, 46, 22, 0.98);
+      font-size: 0.82rem;
+      font-weight: 600;
       cursor: pointer;
-      border: 1px solid rgba(148, 163, 184, 0.65);
-      background: rgba(15, 23, 42, 0.96);
-      color: var(--text-main);
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       transition: background var(--transition-fast),
-        border-color var(--transition-fast),
         transform var(--transition-fast),
         box-shadow var(--transition-fast);
     }
 
-    .price-card.featured .btn-price {
-      background: linear-gradient(135deg, #4f46e5, #22d3ee);
-      border-color: transparent;
-      color: #020617;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
-    }
-
-    .btn-price:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.9);
-      border-color: rgba(129, 140, 248, 0.9);
-      background: radial-gradient(
-        circle at top left,
-        rgba(79, 70, 229, 0.3),
-        rgba(15, 23, 42, 0.98)
+    .btn-product:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(34, 197, 94, 0.95),
+        rgba(4, 47, 24, 1)
       );
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.75);
     }
 
-    .price-card.featured .btn-price:hover {
-      filter: brightness(1.06);
+    /* STORY / BRAND SECTION */
+    .story {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      margin-top: 3.3rem;
     }
 
-    .contact-card {
-      margin-top: 1.8rem;
-      padding: 1.3rem 1.2rem;
+    @media (max-width: 880px) {
+      .story {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .story-card {
       border-radius: var(--radius-lg);
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      display: flex;
-      flex-wrap: wrap;
+      border: 1px solid rgba(190, 242, 100, 0.65);
+      background: rgba(4, 47, 24, 0.98);
+      padding: 1.4rem 1.3rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+      font-size: 0.92rem;
+      color: var(--yellow-soft);
+      line-height: 1.8;
+    }
+
+    .story-card h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
-      justify-content: space-between;
-      align-items: center;
       font-size: 0.86rem;
-      color: var(--text-muted);
     }
 
-    .contact-actions {
+    @media (max-width: 680px) {
+      .story-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .story-item {
+      padding: 0.9rem 0.9rem;
+      border-radius: var(--radius-sm);
+      background: rgba(6, 95, 70, 0.95);
+      border: 1px solid rgba(190, 242, 100, 0.55);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
+    }
+
+    .story-item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: #fefce8;
+    }
+
+    .story-item small {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: #bbf7d0;
+    }
+
+    /* CTA / CONTACT */
+    .cta-section {
+      margin-top: 3.8rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(190, 242, 100, 0.75);
+      background: radial-gradient(circle at top, #facc15, #166534 55%, #052e16);
+      padding: 1.6rem 1.5rem 1.7rem;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
+    }
+
+    .cta-inner {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      justify-content: space-between;
+      gap: 1.2rem;
+      align-items: center;
     }
 
-    .contact-text strong {
-      color: var(--text-main);
+    .cta-title {
+      font-size: 1.35rem;
+      margin: 0 0 0.3rem;
+      color: #052e16;
     }
 
-    .contact-inline {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
+    .cta-text {
+      font-size: 0.9rem;
+      color: #1b4332;
+      max-width: 26rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn-cta-main {
+      border-radius: 999px;
+      padding: 0.8rem 1.4rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 1px solid #052e16;
+      background: #052e16;
+      color: #fefce8;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .btn-cta-main:hover {
+      transform: translateY(-1px);
+      background: #14532d;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-cta-ghost {
+      border-radius: 999px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.86rem;
+      border: 1px solid rgba(15, 23, 42, 0.55);
+      background: rgba(254, 252, 232, 0.92);
+      color: #052e16;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-cta-ghost:hover {
+      background: #fef3c7;
+      transform: translateY(-1px);
+    }
+
+    .cta-inline {
+      margin-top: 0.4rem;
+      font-size: 0.82rem;
+      color: #052e16;
+    }
+
+    .cta-inline strong {
+      font-weight: 700;
     }
 
     footer {
-      border-top: 1px solid rgba(15, 23, 42, 0.9);
       margin-top: auto;
-      padding: 1.2rem 1.25rem 1.4rem;
+      padding: 1.4rem 1.25rem 1.5rem;
       font-size: 0.8rem;
-      color: var(--text-muted);
+      color: var(--yellow-soft);
+      border-top: 1px solid rgba(22, 163, 74, 0.7);
       background: radial-gradient(
-          circle at top,
-          rgba(15, 23, 42, 0.9),
-          #020617 60%
-        );
+        circle at top,
+        rgba(4, 47, 24, 0.98),
+        #020617 75%
+      );
     }
 
     .footer-inner {
@@ -751,54 +810,40 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 0.7rem;
       align-items: center;
+      gap: 0.7rem;
     }
 
     .footer-links {
       display: flex;
-      gap: 0.9rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .footer-links a {
-      text-decoration: none;
-    }
-
     .footer-links a:hover {
-      color: var(--text-main);
-    }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .danger-note {
-      color: var(--danger);
-      font-size: 0.74rem;
-      margin-top: 0.3rem;
+      color: var(--yellow);
     }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- NAVBAR -->
     <header>
       <nav class="nav">
         <div class="nav-left">
-          <div class="logo-pill">SF</div>
+          <div class="logo-pill">NP</div>
           <div class="brand-text">
-            <div class="brand-title">ShortForm Studio</div>
-            <div class="brand-sub">Reels · TikTok · Shorts</div>
+            <div class="brand-title">Next Play</div>
+            <div class="brand-sub">Golf towels · markers · tools</div>
           </div>
         </div>
         <div class="nav-links">
-          <a href="#how">How it works</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#shop">Shop</a>
+          <a href="#story">Our story</a>
           <a href="#contact">Contact</a>
         </div>
-        <a href="#contact" class="btn-nav">
-          Book a Call <span>↗</span>
+        <a href="#shop" class="btn-nav">
+          Shop now <span>↗</span>
         </a>
       </nav>
     </header>
@@ -809,257 +854,298 @@
         <div>
           <div class="hero-kicker">
             <span class="hero-kicker-dot"></span>
-            Done-for-you short-form content
+            Built for the next shot
           </div>
           <h1 class="hero-title">
-            We turn your business into a
-            <span>scroll-stopping content machine.</span>
+            Ready for your <span>next play</span> –
+            premium golf towels, markers &amp; divot tools.
           </h1>
           <p class="hero-subtitle">
-            We create 12–20 high-converting Reels, TikToks, and YouTube Shorts
-            for your business every month. You send simple clips on your phone.
-            We handle scripts, editing, captions, and scheduling.
+            Next Play is a golf accessories brand obsessed with the little details
+            that shape your round. <strong>Fast-drying towels</strong>, 
+            <strong>clean ball markers</strong> and
+            <strong>solid divot tools</strong> – all in our signature
+            yellow, green and white.
           </p>
 
-          <div class="hero-metrics">
-            <div class="metric-pill">
-              <span class="metric-label">Turnaround</span>
-              <span class="metric-value">3–5 days per batch</span>
-            </div>
-            <div class="metric-pill">
-              <span class="metric-label">Per month</span>
-              <span class="metric-value">12–20 ready-to-post videos</span>
-            </div>
-            <div class="metric-pill">
-              <span class="metric-label">For who</span>
-              <span class="metric-value">Gyms · Salons · Creators · Agencies</span>
-            </div>
-          </div>
-
           <div class="hero-actions">
-            <a href="#contact" class="btn-primary">
-              Book a free 10-minute call
-              <span>→</span>
+            <a href="#shop" class="btn-primary">
+              Browse the collection <span>→</span>
             </a>
-            <a href="#pricing" class="btn-ghost">
-              View packages
+            <a href="#story" class="btn-ghost">
+              Why we started Next Play
             </a>
           </div>
 
           <div class="hero-note">
-            <span class="hero-note-dot"></span>
-            <span>Spots limited by editing capacity. We only onboard a few clients per month.</span>
+            <span class="hero-note-tag">Limited first drop</span>
+            <span>Small batch accessories designed to last more than one season.</span>
           </div>
         </div>
 
-        <!-- Right: fake phone mockups -->
-        <div class="hero-media">
-          <div class="hero-badge">
-            7-day video trial · No long contracts
-          </div>
-          <div class="phone-grid">
-            <div class="phone">
-              <div class="phone-inner">
-                <div class="phone-header">
-                  <span>@citygym</span>
-                  <span>•••</span>
-                </div>
-                <div class="phone-video">
-                  “POV: Your first week back at the gym…”
-                </div>
-                <div class="phone-footer">
-                  <span class="pulse-tag">+312% views</span>
-                  <span>“Saved 49 times”</span>
-                </div>
-              </div>
-            </div>
-            <div class="phone">
-              <div class="phone-inner">
-                <div class="phone-header">
-                  <span>@modernsmiles</span>
-                  <span>⭐ 4.9</span>
-                </div>
-                <div class="phone-video">
-                  “3 things your dentist wishes you knew (but won’t say)”
-                </div>
-                <div class="phone-footer">
-                  <span>Leads this week</span>
-                  <span>+27</span>
-                </div>
-              </div>
-            </div>
-            <div class="phone">
-              <div class="phone-inner">
-                <div class="phone-header">
-                  <span>@theblendbarber</span>
-                  <span>LIVE</span>
-                </div>
-                <div class="phone-video">
-                  High-energy before &amp; after transformation shots.
-                </div>
-                <div class="phone-footer">
-                  <span>Watch time ↑</span>
-                  <span>2.4×</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="floating-tag">
-            <span class="floating-dot"></span>
-            <span>AI-assisted editing · human-level taste</span>
+        <!-- Course illustration -->
+        <div class="hero-course" aria-hidden="true">
+          <div class="course-sun"></div>
+          <div class="course-green"></div>
+          <div class="flag-stick"></div>
+          <div class="flag"></div>
+          <div class="cup"></div>
+          <div class="ball"></div>
+          <p class="course-copy">
+            Inspired by early morning tee times and the feeling of a clean approach
+            shot. Gear that looks sharp in the bag and works hard on the course.
+          </p>
+          <div class="course-badge">
+            <span class="course-badge-dot"></span>
+            <span>Designed on the practice green</span>
           </div>
         </div>
       </section>
 
-      <!-- HOW IT WORKS -->
-      <section class="section" id="how">
+      <!-- SHOP -->
+      <section class="section" id="shop">
         <div class="section-header">
           <div>
-            <h2 class="section-title">How it works</h2>
+            <h2 class="section-title">The Next Play collection</h2>
             <p class="section-subtitle">
-              Simple process, predictable results. You stay focused on your business;
-              we feed your socials with consistent, on-brand content.
+              Simple, reliable pieces you’ll use every hole. Built around three
+              essentials: towels to keep everything clean, markers to line up the
+              putt, and divot tools to leave the course better than you found it.
             </p>
           </div>
           <div class="pill-row">
-            <span>Strategy</span>
-            <span>Scripts</span>
-            <span>Editing</span>
-            <span>Captions</span>
-            <span>Scheduling support</span>
+            <span>Premium cotton &amp; microfiber</span>
+            <span>Signature yellow / green / white</span>
+            <span>Course-ready hardware</span>
           </div>
         </div>
 
-        <div class="grid-3">
-          <article class="card">
-            <span class="card-label">Step 1</span>
-            <h3 class="card-title">Fast strategy call</h3>
-            <p class="card-text">
-              In a 10-minute call we learn who you are, what you sell, and who you
-              want to reach. We build a simple content plan with hooks designed to
-              stop the scroll in your niche.
+        <div class="product-grid">
+          <!-- Towels -->
+          <article class="product-card">
+            <div class="product-tag">Best seller</div>
+            <div class="product-image">
+              Waffle-weave towel with yellow trim and green hanging loop.
+            </div>
+            <h3 class="product-name">Next Play Waffle Towel</h3>
+            <p class="product-desc">
+              A 16&quot; × 24&quot; waffle-weave towel in deep green with soft
+              white patterning. Ultra-absorbent, quick-drying and finished with a
+              yellow edge stitch so it stands out on the cart.
             </p>
-            <div class="card-step">1</div>
+            <div class="product-meta">
+              <span class="product-price">£24</span>
+              <span class="product-detail">Carabiner clip · machine washable</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
           </article>
 
-          <article class="card">
-            <span class="card-label">Step 2</span>
-            <h3 class="card-title">You record; we handle the rest</h3>
-            <p class="card-text">
-              We send you easy prompts and shot lists you can film on your phone in
-              under an hour per week. You drop clips into a shared folder – we turn
-              them into polished short-form videos.
+          <article class="product-card">
+            <div class="product-image">
+              Split-colour towel: white top, green base, yellow stripe through the middle.
+            </div>
+            <h3 class="product-name">Split Fairway Towel</h3>
+            <p class="product-desc">
+              Two-tone design made for players who like a clean look. Use the white
+              side for hands and the green for clubs and grooves. Finished with a
+              discreet Next Play wordmark.
             </p>
-            <div class="card-tag">Zero editing on your side</div>
-            <div class="card-step">2</div>
+            <div class="product-meta">
+              <span class="product-price">£22</span>
+              <span class="product-detail">Microfiber blend · lightweight</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
           </article>
 
-          <article class="card">
-            <span class="card-label">Step 3</span>
-            <h3 class="card-title">Delivered ready to post</h3>
-            <p class="card-text">
-              Every week you receive a batch of edited Reels/TikToks with captions,
-              hooks, and posting suggestions. Just upload, or let your team schedule
-              them and watch your profile wake up.
+          <!-- Ball markers -->
+          <article class="product-card">
+            <div class="product-tag">New</div>
+            <div class="product-image">
+              Low-profile ball marker: green face, yellow ring and white &ldquo;NP&rdquo; monogram.
+            </div>
+            <h3 class="product-name">Moment Marker Set</h3>
+            <p class="product-desc">
+              A trio of metal ball markers with enamel inlays: one classic green, one
+              bright yellow and one clean white. Thin enough to stay out of your
+              partner&rsquo;s line, bold enough to spot instantly.
             </p>
-            <div class="card-step">3</div>
+            <div class="product-meta">
+              <span class="product-price">£18</span>
+              <span class="product-detail">Set of 3 · magnetic-friendly</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
+          </article>
+
+          <!-- Divot tools -->
+          <article class="product-card">
+            <div class="product-image">
+              Brushed metal divot tool with white logo and yellow accent groove.
+            </div>
+            <h3 class="product-name">PitchFix Divot Tool</h3>
+            <p class="product-desc">
+              Solid-feel divot tool milled from zinc alloy with a soft-touch green
+              grip. Balanced tines repair turf without tearing roots, so your home
+              course superintendent will actually like you.
+            </p>
+            <div class="product-meta">
+              <span class="product-price">£20</span>
+              <span class="product-detail">Single-piece body · bottle-opener</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              Fold-out divot tool with interchangeable magnetic ball marker.
+            </div>
+            <h3 class="product-name">Next Play Fold-Out Tool</h3>
+            <p class="product-desc">
+              A pocket-friendly, fold-out divot tool in forest green with a magnetic
+              face that holds our Moment Marker. Snap it open on the green, snap it
+              shut on the walk to the next tee.
+            </p>
+            <div class="product-meta">
+              <span class="product-price">£26</span>
+              <span class="product-detail">Includes 1 marker · compact</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
+          </article>
+
+          <!-- Bundle -->
+          <article class="product-card">
+            <div class="product-tag">Bundle</div>
+            <div class="product-image">
+              Towel + marker set + divot tool in matching yellow, green and white.
+            </div>
+            <h3 class="product-name">Opening Tee Box Set</h3>
+            <p class="product-desc">
+              One waffle towel, one Moment Marker set and one PitchFix divot tool,
+              packaged in a recyclable gift box. A full upgrade for your own bag or
+              an easy present for the golfer who already has too many clubs.
+            </p>
+            <div class="product-meta">
+              <span class="product-price">£58</span>
+              <span class="product-detail">Save £8 · gift-ready</span>
+            </div>
+            <button class="btn-product" type="button">
+              Add to bag
+              <span>+</span>
+            </button>
           </article>
         </div>
       </section>
 
-      <!-- PRICING -->
-      <section class="section" id="pricing">
+      <!-- STORY / BRAND -->
+      <section class="section" id="story">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Packages built for local businesses</h2>
+            <h2 class="section-title">Why Next Play?</h2>
             <p class="section-subtitle">
-              Start with a 7-day paid trial. If you don’t feel the quality is there,
-              don’t continue – no hard feelings, no hidden fees.
+              The name comes from that moment after a chunked wedge or lipped-out
+              putt – you take a breath, reset, and focus on the next shot. Our gear
+              is built for that reset.
             </p>
           </div>
         </div>
 
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-label">Starter</div>
-            <div class="price-name">Consistent Presence</div>
-            <div class="price-amount">£500<span>/month</span></div>
-            <p class="price-desc">
-              Ideal for solo creators and small local businesses dipping their toes
-              into short-form content.
+        <div class="story">
+          <article class="story-card">
+            <h3>Born on muni fairways, not in a boardroom.</h3>
+            <p>
+              Next Play started as a note in the back of a scorecard after another
+              round with a crusty towel and a bent plastic repair tool. We didn&rsquo;t
+              want more clutter in the bag – we wanted a few pieces that felt good
+              to use every time we reached for them.
             </p>
-            <ul class="price-features">
-              <li>12 edited Reels/TikToks per month</li>
-              <li>Hooks, captions &amp; basic strategy</li>
-              <li>Simple “film on your phone” guide</li>
-              <li>2 revision rounds per batch</li>
-            </ul>
-            <a href="#contact" class="btn-price">
-              Start with a 7-day trial
-            </a>
-          </div>
+            <p>
+              Every item in the collection had to clear three checks: does it feel
+              solid in the hand, does it look clean in our yellow / green / white
+              colours, and does it earn its space on the bag or in the pocket.
+            </p>
+            <p>
+              We&rsquo;re a small brand, which means short runs, tight quality control
+              and designs that can actually change when we get feedback from people
+              who play more golf than we do.
+            </p>
+          </article>
 
-          <div class="price-card featured">
-            <div class="price-label">Most popular</div>
-            <div class="price-name">Growth Mode</div>
-            <div class="price-amount">£1,000<span>/month</span></div>
-            <p class="price-desc">
-              For brands ready to grow reach and enquiries with a steady stream of
-              content and testing.
-            </p>
-            <ul class="price-features">
-              <li>16–20 edited videos per month</li>
-              <li>Hook + format testing for performance</li>
-              <li>Thumbnail frames &amp; story ideas</li>
-              <li>Priority turnaround &amp; feedback loop</li>
-            </ul>
-            <a href="#contact" class="btn-price">
-              Apply for this package
-            </a>
-          </div>
-
-          <div class="price-card">
-            <div class="price-label">Premium</div>
-            <div class="price-name">All-In Content Partner</div>
-            <div class="price-amount">£1,500<span>/month</span></div>
-            <p class="price-desc">
-              For gyms, clinics, and agencies that want a plug-and-play content
-              department without hiring full-time staff.
-            </p>
-            <ul class="price-features">
-              <li>Custom volume based on your needs</li>
-              <li>Content calendar &amp; launch concepts</li>
-              <li>Onboarding call with your team</li>
-              <li>Slack/WhatsApp support for ideas &amp; tweaks</li>
-            </ul>
-            <a href="#contact" class="btn-price">
-              Book a discovery call
-            </a>
+          <div class="story-grid">
+            <div class="story-item">
+              <div class="story-item-title">Designed for repeat rounds</div>
+              <small>Durability first</small>
+              <p>
+                Reinforced stitching, metal hardware and fabrics chosen for how they
+                behave after the tenth wash, not the first photo.
+              </p>
+            </div>
+            <div class="story-item">
+              <div class="story-item-title">Colour that belongs on course</div>
+              <small>Signature palette</small>
+              <p>
+                Greens pulled from real fairways and yellows bright enough to spot in
+                the cart but soft enough to stay classic.
+              </p>
+            </div>
+            <div class="story-item">
+              <div class="story-item-title">Respect for the course</div>
+              <small>Leave it better</small>
+              <p>
+                Every divot tool is shaped to fix marks cleanly, because we owe the
+                next group behind us more than a scuffed green.
+              </p>
+            </div>
+            <div class="story-item">
+              <div class="story-item-title">Small runs, real people</div>
+              <small>Independent brand</small>
+              <p>
+                No big-box pressure. When a batch sells through, we listen, tweak
+                and bring it back better for the next drop.
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="contact-card" id="contact">
-          <div class="contact-text">
-            <strong>Book a free 10-minute intro call.</strong><br />
-            We’ll look at your current social presence and tell you honestly if this
-            service makes sense for you.
-            <p class="contact-inline">
-              No pressure, no pushy sales script. Worst case: you leave with 3–5
-              content ideas tailored to your audience.
+      <!-- CTA / CONTACT -->
+      <section class="cta-section" id="contact">
+        <div class="cta-inner">
+          <div>
+            <h2 class="cta-title">Ready for your next play?</h2>
+            <p class="cta-text">
+              Order directly from the site, or reach out if you&rsquo;re a shop,
+              club or event looking for custom colours and logos in our Next Play
+              style.
+            </p>
+            <p class="cta-inline">
+              Wholesale and tournament packs available from
+              <strong>25 units</strong> and up.
             </p>
           </div>
-          <div class="contact-actions">
-            <!-- Replace the href with your Calendly or booking link -->
-            <a href="https://calendly.com/" target="_blank" class="btn-primary">
-              Open booking calendar
+          <div class="cta-actions">
+            <!-- replace mailto with your real email -->
+            <a href="mailto:you@example.com" class="btn-cta-main">
+              Email the team
               <span>↗</span>
             </a>
-            <a href="mailto:youremail@example.com" class="btn-ghost">
-              Or email: youremail@example.com
+            <!-- replace with your real social / contact link -->
+            <a href="https://instagram.com" target="_blank" class="btn-cta-ghost">
+              Follow Next Play on Instagram
             </a>
-          </div>
-          <div class="danger-note">
-            Replace the calendar and email above with your real links before sharing this page.
           </div>
         </div>
       </section>
@@ -1067,10 +1153,10 @@
 
     <footer>
       <div class="footer-inner">
-        <span>© <span id="year"></span> ShortForm Studio. All rights reserved.</span>
+        <span>© <span id="year"></span> Next Play Golf. All rights reserved.</span>
         <div class="footer-links">
-          <a href="#how">Process</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#shop">Shop</a>
+          <a href="#story">Our story</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -1078,7 +1164,6 @@
   </div>
 
   <script>
-    // Auto-update year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
