@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShortForm Studio – Reels & TikTok for Local Businesses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="We create scroll-stopping Reels, TikToks, and Shorts for local businesses every month."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b0f1f;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --accent-strong: #22d3ee;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --danger: #f97373;
+      --radius-lg: 1.25rem;
+      --radius-sm: 0.75rem;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.55);
+      --max-width: 1120px;
+      --transition-fast: 0.18s ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827 0, #020617 48%, #000 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.92),
+        rgba(2, 6, 23, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.6);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #a855f7, #4f46e5 58%, #22d3ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.25),
+        0 10px 30px rgba(15, 23, 42, 0.85);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--accent-strong));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-nav {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(
+        circle at top left,
+        rgba(79, 70, 229, 0.35),
+        rgba(15, 23, 42, 0.88)
+      );
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-nav span {
+      font-size: 1.1rem;
+    }
+
+    .btn-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+      border-color: rgba(129, 140, 248, 0.7);
+    }
+
+    .hero {
+      padding-top: 3.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      header {
+        background: rgba(2, 6, 23, 0.96);
+      }
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.24rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.85);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, #22c55e, #16a34a);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.16);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #22d3ee, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 31rem;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      margin: 1.7rem 0;
+    }
+
+    .metric-pill {
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 8.3rem;
+    }
+
+    .metric-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9rem 1.35rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #22d3ee);
+      color: #0b1120;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 26px 65px rgba(15, 23, 42, 0.95);
+      filter: brightness(1.05);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.45);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(129, 140, 248, 0.9);
+      color: var(--text-main);
+      background: radial-gradient(
+        circle at top,
+        rgba(79, 70, 229, 0.35),
+        rgba(15, 23, 42, 0.98)
+      );
+    }
+
+    .hero-note {
+      margin-top: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-note-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .hero-media {
+      position: relative;
+      padding: 1.8rem 1.5rem;
+      border-radius: 1.6rem;
+      background: radial-gradient(
+          circle at top left,
+          rgba(79, 70, 229, 0.35),
+          transparent 60%
+        ),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.26), #020617);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    .phone {
+      border-radius: 1.4rem;
+      padding: 0.4rem;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at top, #020617, #020617);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+    }
+
+    .phone-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .phone-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .phone-video {
+      flex: 1;
+      margin: 0.5rem 0;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at center, #4f46e5, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    .phone-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .pulse-tag {
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.16);
+      color: #4ade80;
+      font-size: 0.7rem;
+    }
+
+    .floating-tag {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.3rem;
+      padding: 0.38rem 0.78rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .floating-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .section {
+      margin-top: 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.2rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .pill-row span {
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 880px) {
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: radial-gradient(
+          circle at top left,
+          rgba(79, 70, 229, 0.16),
+          transparent 55%
+        ),
+        rgba(15, 23, 42, 0.96);
+      padding: 1.25rem 1.2rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin: 0 0 0.45rem;
+    }
+
+    .card-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .card-tag {
+      position: absolute;
+      right: 1.1rem;
+      top: 1.1rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      color: var(--accent-strong);
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      background: rgba(8, 47, 73, 0.75);
+    }
+
+    .card-step {
+      font-size: 2.2rem;
+      font-weight: 700;
+      opacity: 0.12;
+      position: absolute;
+      bottom: -0.6rem;
+      right: 0.8rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 880px) {
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .price-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(
+          circle at top left,
+          rgba(79, 70, 229, 0.22),
+          transparent 55%
+        ),
+        rgba(15, 23, 42, 0.97);
+      padding: 1.4rem 1.3rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      position: relative;
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.9);
+    }
+
+    .price-card.featured {
+      border-color: rgba(250, 250, 250, 0.9);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.96);
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .price-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .price-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .price-amount span {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-left: 0.1rem;
+    }
+
+    .price-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .price-features {
+      list-style: none;
+      margin: 0.2rem 0 0.9rem;
+      padding: 0;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .price-features li::before {
+      content: "✔";
+      margin-right: 0.45rem;
+      font-size: 0.75rem;
+      color: #22c55e;
+    }
+
+    .btn-price {
+      margin-top: auto;
+      align-self: flex-start;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      padding: 0.75rem 1.2rem;
+      cursor: pointer;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .price-card.featured .btn-price {
+      background: linear-gradient(135deg, #4f46e5, #22d3ee);
+      border-color: transparent;
+      color: #020617;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-price:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.9);
+      border-color: rgba(129, 140, 248, 0.9);
+      background: radial-gradient(
+        circle at top left,
+        rgba(79, 70, 229, 0.3),
+        rgba(15, 23, 42, 0.98)
+      );
+    }
+
+    .price-card.featured .btn-price:hover {
+      filter: brightness(1.06);
+    }
+
+    .contact-card {
+      margin-top: 1.8rem;
+      padding: 1.3rem 1.2rem;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .contact-text strong {
+      color: var(--text-main);
+    }
+
+    .contact-inline {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      margin-top: auto;
+      padding: 1.2rem 1.25rem 1.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: radial-gradient(
+          circle at top,
+          rgba(15, 23, 42, 0.9),
+          #020617 60%
+        );
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .danger-note {
+      color: var(--danger);
+      font-size: 0.74rem;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-pill">SF</div>
+          <div class="brand-text">
+            <div class="brand-title">ShortForm Studio</div>
+            <div class="brand-sub">Reels · TikTok · Shorts</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn-nav">
+          Book a Call <span>↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-dot"></span>
+            Done-for-you short-form content
+          </div>
+          <h1 class="hero-title">
+            We turn your business into a
+            <span>scroll-stopping content machine.</span>
+          </h1>
+          <p class="hero-subtitle">
+            We create 12–20 high-converting Reels, TikToks, and YouTube Shorts
+            for your business every month. You send simple clips on your phone.
+            We handle scripts, editing, captions, and scheduling.
+          </p>
+
+          <div class="hero-metrics">
+            <div class="metric-pill">
+              <span class="metric-label">Turnaround</span>
+              <span class="metric-value">3–5 days per batch</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-label">Per month</span>
+              <span class="metric-value">12–20 ready-to-post videos</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-label">For who</span>
+              <span class="metric-value">Gyms · Salons · Creators · Agencies</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Book a free 10-minute call
+              <span>→</span>
+            </a>
+            <a href="#pricing" class="btn-ghost">
+              View packages
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span class="hero-note-dot"></span>
+            <span>Spots limited by editing capacity. We only onboard a few clients per month.</span>
+          </div>
+        </div>
+
+        <!-- Right: fake phone mockups -->
+        <div class="hero-media">
+          <div class="hero-badge">
+            7-day video trial · No long contracts
+          </div>
+          <div class="phone-grid">
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="phone-header">
+                  <span>@citygym</span>
+                  <span>•••</span>
+                </div>
+                <div class="phone-video">
+                  “POV: Your first week back at the gym…”
+                </div>
+                <div class="phone-footer">
+                  <span class="pulse-tag">+312% views</span>
+                  <span>“Saved 49 times”</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="phone-header">
+                  <span>@modernsmiles</span>
+                  <span>⭐ 4.9</span>
+                </div>
+                <div class="phone-video">
+                  “3 things your dentist wishes you knew (but won’t say)”
+                </div>
+                <div class="phone-footer">
+                  <span>Leads this week</span>
+                  <span>+27</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone">
+              <div class="phone-inner">
+                <div class="phone-header">
+                  <span>@theblendbarber</span>
+                  <span>LIVE</span>
+                </div>
+                <div class="phone-video">
+                  High-energy before &amp; after transformation shots.
+                </div>
+                <div class="phone-footer">
+                  <span>Watch time ↑</span>
+                  <span>2.4×</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-tag">
+            <span class="floating-dot"></span>
+            <span>AI-assisted editing · human-level taste</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section" id="how">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">How it works</h2>
+            <p class="section-subtitle">
+              Simple process, predictable results. You stay focused on your business;
+              we feed your socials with consistent, on-brand content.
+            </p>
+          </div>
+          <div class="pill-row">
+            <span>Strategy</span>
+            <span>Scripts</span>
+            <span>Editing</span>
+            <span>Captions</span>
+            <span>Scheduling support</span>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="card-label">Step 1</span>
+            <h3 class="card-title">Fast strategy call</h3>
+            <p class="card-text">
+              In a 10-minute call we learn who you are, what you sell, and who you
+              want to reach. We build a simple content plan with hooks designed to
+              stop the scroll in your niche.
+            </p>
+            <div class="card-step">1</div>
+          </article>
+
+          <article class="card">
+            <span class="card-label">Step 2</span>
+            <h3 class="card-title">You record; we handle the rest</h3>
+            <p class="card-text">
+              We send you easy prompts and shot lists you can film on your phone in
+              under an hour per week. You drop clips into a shared folder – we turn
+              them into polished short-form videos.
+            </p>
+            <div class="card-tag">Zero editing on your side</div>
+            <div class="card-step">2</div>
+          </article>
+
+          <article class="card">
+            <span class="card-label">Step 3</span>
+            <h3 class="card-title">Delivered ready to post</h3>
+            <p class="card-text">
+              Every week you receive a batch of edited Reels/TikToks with captions,
+              hooks, and posting suggestions. Just upload, or let your team schedule
+              them and watch your profile wake up.
+            </p>
+            <div class="card-step">3</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="section" id="pricing">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Packages built for local businesses</h2>
+            <p class="section-subtitle">
+              Start with a 7-day paid trial. If you don’t feel the quality is there,
+              don’t continue – no hard feelings, no hidden fees.
+            </p>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-label">Starter</div>
+            <div class="price-name">Consistent Presence</div>
+            <div class="price-amount">£500<span>/month</span></div>
+            <p class="price-desc">
+              Ideal for solo creators and small local businesses dipping their toes
+              into short-form content.
+            </p>
+            <ul class="price-features">
+              <li>12 edited Reels/TikToks per month</li>
+              <li>Hooks, captions &amp; basic strategy</li>
+              <li>Simple “film on your phone” guide</li>
+              <li>2 revision rounds per batch</li>
+            </ul>
+            <a href="#contact" class="btn-price">
+              Start with a 7-day trial
+            </a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="price-label">Most popular</div>
+            <div class="price-name">Growth Mode</div>
+            <div class="price-amount">£1,000<span>/month</span></div>
+            <p class="price-desc">
+              For brands ready to grow reach and enquiries with a steady stream of
+              content and testing.
+            </p>
+            <ul class="price-features">
+              <li>16–20 edited videos per month</li>
+              <li>Hook + format testing for performance</li>
+              <li>Thumbnail frames &amp; story ideas</li>
+              <li>Priority turnaround &amp; feedback loop</li>
+            </ul>
+            <a href="#contact" class="btn-price">
+              Apply for this package
+            </a>
+          </div>
+
+          <div class="price-card">
+            <div class="price-label">Premium</div>
+            <div class="price-name">All-In Content Partner</div>
+            <div class="price-amount">£1,500<span>/month</span></div>
+            <p class="price-desc">
+              For gyms, clinics, and agencies that want a plug-and-play content
+              department without hiring full-time staff.
+            </p>
+            <ul class="price-features">
+              <li>Custom volume based on your needs</li>
+              <li>Content calendar &amp; launch concepts</li>
+              <li>Onboarding call with your team</li>
+              <li>Slack/WhatsApp support for ideas &amp; tweaks</li>
+            </ul>
+            <a href="#contact" class="btn-price">
+              Book a discovery call
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <div class="contact-text">
+            <strong>Book a free 10-minute intro call.</strong><br />
+            We’ll look at your current social presence and tell you honestly if this
+            service makes sense for you.
+            <p class="contact-inline">
+              No pressure, no pushy sales script. Worst case: you leave with 3–5
+              content ideas tailored to your audience.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <!-- Replace the href with your Calendly or booking link -->
+            <a href="https://calendly.com/" target="_blank" class="btn-primary">
+              Open booking calendar
+              <span>↗</span>
+            </a>
+            <a href="mailto:youremail@example.com" class="btn-ghost">
+              Or email: youremail@example.com
+            </a>
+          </div>
+          <div class="danger-note">
+            Replace the calendar and email above with your real links before sharing this page.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© <span id="year"></span> ShortForm Studio. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#how">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Auto-update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
